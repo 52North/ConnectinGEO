@@ -54,7 +54,8 @@ services:
 
 Now, access [http://localhost:8080/52n-sos-webapp](http://localhost:8080/52n-sos-webapp).
 The landing page will tell you to execute the installation procedure. Follow this
-guided procedure. You will have your SOS running in a few seconds.
+guided procedure. In the database connection section, make sure to set the
+host to `postgres`. You will have your SOS running in a few seconds.
 
 ### Using a Pre-filled Database
 
