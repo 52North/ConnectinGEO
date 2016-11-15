@@ -27,7 +27,7 @@ To use the empty database, run the following docker commands:
 
 1. `docker run --name sos-empty-postgres -p 5432:5432 52north/sos-empty-postgres:1.0.0`
 1. Run the **sos** docker image and let it use the localhost's network:
-`docker run --link sos-example-postgres:postgres -p 8080:8080 52north/sos:4.3.7`
+`docker run --link sos-empty-postgres:postgres -p 8080:8080 52north/sos:4.3.7`
 
 Alternatively, you can use the following **docker-compose** file (run with
 `docker-compose build && docker-compose up`):
@@ -35,8 +35,8 @@ Alternatively, you can use the following **docker-compose** file (run with
 ```yml
 version: '2'
 services:
-  postgres-db:
-    image: 52north/sos-empty-postgres:1.0.0
+  postgres-db-empty:
+    image: mdillon/postgis:9.3
     expose:
       - 5432
     environment:
@@ -48,14 +48,19 @@ services:
     ports:
       - 8080:8080
     links:
-      - postgres-db:postgres
+      - postgres-db-empty:postgres
 ```
 
 
 Now, access [http://localhost:8080/52n-sos-webapp](http://localhost:8080/52n-sos-webapp).
 The landing page will tell you to execute the installation procedure. Follow this
-guided procedure. In the database connection section, make sure to set the
-host to `postgres`. You will have your SOS running in a few seconds.
+guided procedure. In particular, apply the following properties:
+
+* as the _Datasource_ select `PostgreSQL/PostGIS`
+* in the _Database Configuration_ section, make sure to set the
+_Host_ to `postgres`
+
+You will have your SOS running in a few seconds.
 
 ### Using a Pre-filled Database
 
@@ -74,7 +79,7 @@ Alternatively, you can use the following **docker-compose** file (run with
 ```yml
 version: '2'
 services:
-  postgres-db:
+  sos-example-postgres:
     image: 52north/sos-example-postgres:1.0.0
     expose:
       - 5432
@@ -87,7 +92,7 @@ services:
     ports:
       - 8080:8080
     links:
-      - postgres-db:postgres
+      - sos-example-postgres:postgres
 ```
 
 The SOS is now up and running at [http://localhost:8080/52n-sos-webapp](http://localhost:8080/52n-sos-webapp).
