@@ -12,21 +12,22 @@ our example databases on these images.
 The **52north/sos-configured** docker image consists of a pre-configured
 SOS instance running in a Tomcat container. It has the following settings:
 
-* Database connection: PostgreSQL on `localhost:5432` with credentials
-`postgres:postgres`
+* Database connection: PostgreSQL on `postgres:5432` with credentials `postgres:postgres`
+(the DB is running in a DNS named (`postgres`) docker container)
 * Administrator account with credentials `admin:admin`
 * Transactional operations enabled
 
-The **52north/52n-sos** docker image is a simple image of a non-configured SOS.
+The **52north/sos** docker image is a simple instance of a non-configured SOS.
 This image requires the installation procedure to be executed.
 
 ### Using an Empty Database
 
-For this example, we use the non-configured **52north/52n-sos** docker image.
-To use the empty database, run the following docker commands:
+For this example, we use the non-configured **52north/sos** docker image.
+Run the following docker commands:
 
-1. `docker run --name sos-empty-postgres -p 5432:5432 52north/sos-empty-postgres:1.0.0`
-1. Run the **sos** docker image and let it use the localhost's network:
+1. Start the postgres container:
+`docker run --name sos-empty-postgres -p 5432:5432 52north/sos-empty-postgres:1.0.0`
+1. Run the **sos** docker image:
 `docker run --link sos-empty-postgres:postgres -p 8080:8080 52north/sos:4.3.7`
 
 Alternatively, you can use the following **docker-compose** file (run with
@@ -65,11 +66,12 @@ You will have your SOS running in a few seconds.
 ### Using a Pre-filled Database
 
 For this example, we use the pre-configured **52north/sos-configured** docker image.
-A database with some sample data is available as the **52north/postgres-sos-db-samples**
+A database with some sample data is available as the **52north/sos-example-postgres**
 docker image. Execute the following docker commands:
 
-1. `docker run --name sos-example-postgres -p 5432:5432 52north/sos-example-postgres:1.0.0`
-1. Run the **sos** docker image and let it use the localhost's network:
+1. Start the postgres container:
+`docker run --name sos-example-postgres -p 5432:5432 52north/sos-example-postgres:1.0.0`
+1. Run the **sos-configured** docker image:
 `docker run --link sos-example-postgres:postgres -p 8080:8080 52north/sos-configured:4.3.7`
 
 

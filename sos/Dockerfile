@@ -9,5 +9,6 @@ RUN curl -L -o sos-bundle.zip http://52north.org/downloads/send/3-sos/491-52n-se
     && unzip -d sos-webapp sos-bundle/*/bin/target/*.war \
     && cp sos-bundle/*/bin/target/*.war $CATALINA_HOME/webapps/52n-sos-webapp.war \
     && rm -r *
+COPY context.xml $CATALINA_HOME/conf/context.xml
 
 ENV JAVA_OPTS="-XX:PermSize=4096m -XX:MaxPermSize=3072m"

@@ -14,5 +14,6 @@ RUN apt-get update \
     && cd sos-webapp ; zip -r ../52n-sos-webapp-configured.war . * ; cd .. \
     && cp 52n-sos-webapp-configured.war $CATALINA_HOME/webapps/52n-sos-webapp.war \
     && rm -r *
+COPY context.xml $CATALINA_HOME/conf/context.xml
 
 ENV JAVA_OPTS="-XX:PermSize=4096m -XX:MaxPermSize=3072m"
