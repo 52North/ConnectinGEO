@@ -1,11 +1,13 @@
 # 52°North Sensor Web Docker Containers
 
 This page provides a brief overview on the available Docker images for
-the Sensor Web, created and maintained by 52°North.
+the Sensor Web, created and maintained by 52°North:
 
-`https://hub.docker.com/r/mdillon/postgis/` provides docker images of
-PostgreSQL with PostGIS extensions and templates installed. We have based
-our example databases on these images.
+[https://hub.docker.com/r/52north/](https://hub.docker.com/r/52north/)
+
+[mdillon](https://hub.docker.com/r/mdillon/postgis/)
+provides docker images of PostgreSQL with PostGIS extensions and templates installed.
+We have based our example databases on these images.
 
 ## SOS Setup
 
@@ -38,6 +40,8 @@ version: '2'
 services:
   postgres-db-empty:
     image: mdillon/postgis:9.5
+    ports:
+      - 5432:5432
     expose:
       - 5432
     environment:
@@ -83,6 +87,8 @@ version: '2'
 services:
   sos-example-postgres:
     image: 52north/sos-example-postgres:4.3.7
+    ports:
+      - 5432:5432
     expose:
       - 5432
     environment:
@@ -101,4 +107,12 @@ The SOS is now up and running at [http://localhost:8080/52n-sos-webapp](http://l
 
 ## REST API Setup
 
+Both the **52north/sos** and the **52north/sos-configured** image come with the
+Series REST API bundled in the webapp. You can access the API at:
+[http://localhost:8080/52n-sos-webapp/api/v1/](http://localhost:8080/52n-sos-webapp/api/v1/).
+
 ## Helgoland (JS Client) Setup
+
+The images also contain the Helgoland JavaScript client. You can access the
+client at:
+[http://localhost:8080/52n-sos-webapp/static/client/jsClient/#map](http://localhost:8080/52n-sos-webapp/static/client/jsClient/#map)
