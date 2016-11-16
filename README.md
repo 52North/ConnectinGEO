@@ -26,7 +26,7 @@ For this example, we use the non-configured **52north/sos** docker image.
 Run the following docker commands:
 
 1. Start the postgres container:
-`docker run --name sos-empty-postgres -p 5432:5432 52north/sos-empty-postgres:1.0.0`
+`docker run -e "POSTGRES_DB=sos" --name sos-empty-postgres -p 5432:5432 mdillon/postgis:9.5`
 1. Run the **sos** docker image:
 `docker run --link sos-empty-postgres:postgres -p 8080:8080 52north/sos:4.3.7`
 
@@ -37,7 +37,7 @@ Alternatively, you can use the following **docker-compose** file (run with
 version: '2'
 services:
   postgres-db-empty:
-    image: mdillon/postgis:9.3
+    image: mdillon/postgis:9.5
     expose:
       - 5432
     environment:
@@ -70,7 +70,7 @@ A database with some sample data is available as the **52north/sos-example-postg
 docker image. Execute the following docker commands:
 
 1. Start the postgres container:
-`docker run --name sos-example-postgres -p 5432:5432 52north/sos-example-postgres:1.0.0`
+`docker run --name sos-example-postgres -p 5432:5432 52north/sos-example-postgres:4.3.7`
 1. Run the **sos-configured** docker image:
 `docker run --link sos-example-postgres:postgres -p 8080:8080 52north/sos-configured:4.3.7`
 
@@ -82,7 +82,7 @@ Alternatively, you can use the following **docker-compose** file (run with
 version: '2'
 services:
   sos-example-postgres:
-    image: 52north/sos-example-postgres:1.0.0
+    image: 52north/sos-example-postgres:4.3.7
     expose:
       - 5432
     environment:
