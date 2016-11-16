@@ -37,7 +37,7 @@ Alternatively, you can use the following **docker-compose** file (run with
 version: '2'
 services:
   postgres-db-empty:
-    image: mdillon/postgis:9.5
+    image: mdillon/postgis:9.3
     expose:
       - 5432
     environment:
