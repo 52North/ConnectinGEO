@@ -25,7 +25,7 @@ RUN curl -L -o sos-bundle.zip https://github.com/52North/SOS/releases/download/4
     && cp -R dist/ ../../sos-webapp/static/client/helgoland \
     && cd ../../ \
     && cp -R sos-webapp/ $CATALINA_HOME/webapps/52n-sos-webapp \
-    && apt-get -y purge nodejs git \
+    && apt-get -y purge nodejs git python \
     && apt-get -y autoremove --purge \
     && apt-get clean \
     && rm -rf /tmp/* && rm -rf /usr/lib/node_modules && rm -rf /root/.npm
