@@ -30,7 +30,7 @@ Run the following docker commands:
 1. Start the postgres container:
 `docker run -e "POSTGRES_DB=sos" --name sos-empty-postgres -p 5432:5432 mdillon/postgis:9.5`
 1. Run the **sos** docker image:
-`docker run --link sos-empty-postgres:postgres -p 8080:8080 52north/sos:4.3.7`
+`docker run --link sos-empty-postgres:postgres -p 8080:8080 52north/sos:4.3.8`
 
 Alternatively, you can use the following **docker-compose** file (run with
 `docker-compose build && docker-compose up`):
@@ -49,7 +49,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=sos
   sos-service:
-    image: 52north/sos:4.3.7
+    image: 52north/sos:4.3.8
     ports:
       - 8080:8080
     links:
@@ -74,9 +74,9 @@ A database with some sample data is available as the **52north/sos-example-postg
 docker image. Execute the following docker commands:
 
 1. Start the postgres container:
-`docker run --name sos-example-postgres -p 5432:5432 52north/sos-example-postgres:4.3.7`
+`docker run --name sos-example-postgres -p 5432:5432 52north/sos-example-postgres:4.3.8`
 1. Run the **sos-configured** docker image:
-`docker run --link sos-example-postgres:postgres -p 8080:8080 52north/sos-configured:4.3.7`
+`docker run --link sos-example-postgres:postgres -p 8080:8080 52north/sos-configured:4.3.8`
 
 
 Alternatively, you can use the following **docker-compose** file (run with
@@ -86,7 +86,7 @@ Alternatively, you can use the following **docker-compose** file (run with
 version: '2'
 services:
   sos-example-postgres:
-    image: 52north/sos-example-postgres:4.3.7
+    image: 52north/sos-example-postgres:4.3.8
     ports:
       - 5432:5432
     expose:
@@ -96,7 +96,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=sos
   sos-service:
-    image: 52north/sos-configured:4.3.7
+    image: 52north/sos-configured:4.3.8
     ports:
       - 8080:8080
     links:
