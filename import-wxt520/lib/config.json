@@ -10,22 +10,22 @@
     {
       "observedProperty": "AirTemperature",
       "uom": "degC",
-      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/72/getData?expanded=true&format=flot&generalize=true"
+      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/72/getData?expanded=true&format=flot"
     },
     {
       "observedProperty": "InSystemTemperature",
       "uom": "degC",
-      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/73/getData?expanded=true&format=flot&generalize=true"
+      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/73/getData?expanded=true&format=flot"
     },
     {
       "observedProperty": "Humidity",
       "uom": "%",
-      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/74/getData?expanded=true&format=flot&generalize=true"
+      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/74/getData?expanded=true&format=flot"
     },
     {
       "observedProperty": "AthmosphericPressure",
       "uom": "hPa",
-      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/108/getData?expanded=true&format=flot&generalize=true"
+      "dataUrl": "http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/timeseries/108/getData?expanded=true&format=flot"
     }
   ]
 }
