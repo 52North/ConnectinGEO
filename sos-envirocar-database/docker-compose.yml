@@ -2,15 +2,13 @@ version: '2'
 
 services:
   postgresdb:
-    build: ../sos-example-database/
+    build: envirocar-postgres/
     expose:
       - 5432
-
   mongodb:
     build: envirocar-mongo/
     expose:
       - 27017
-
   importer:
     build: envirocar-importer/
     environment:
