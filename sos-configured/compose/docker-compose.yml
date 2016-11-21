@@ -1,7 +1,7 @@
 version: '2'
 services:
-  sos-weather-postgres:
-    image: 52north/sos-weather-postgres:4.3.8
+  sos-solar-postgres:
+    image: 52north/sos-solar-postgres:4.3.8
     ports:
       - 5432:5432
     expose:
@@ -15,4 +15,4 @@ services:
     ports:
       - 8080:8080
     links:
-      - sos-weather-postgres:postgres
+      - sos-solar-postgres:postgres

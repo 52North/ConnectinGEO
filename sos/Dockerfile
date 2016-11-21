@@ -6,14 +6,14 @@ MAINTAINER Matthes Rieke <m.rieke@52north.org>
 WORKDIR /tmp
 #COPY tomcat-conf/* $CATALINA_HOME/conf/
 #COPY rest-api-config/* sos-webapp/WEB-INF/classes/
-COPY tomcat-conf/* /tmp/tomcat-conf/
-COPY rest-api-config/* /tmp/rest-api-config/
-COPY helgoland-config/* /tmp/helgoland-config/
+COPY tomcat-conf/ /tmp/tomcat-conf/
+COPY rest-api-config/ /tmp/rest-api-config/
+COPY helgoland-config/ /tmp/helgoland-config/
 RUN curl -L -o sos-bundle.zip https://github.com/52North/SOS/releases/download/4.3.8/52n-sensorweb-sos-bundle-4.3.8.zip \
     && unzip -d sos-bundle sos-bundle.zip \
     && unzip -d sos-webapp sos-bundle/*/bin/target/*.war \
-    && cp /tmp/tomcat-conf/* $CATALINA_HOME/conf/ \
-    && cp /tmp/rest-api-config/* sos-webapp/WEB-INF/classes/ \
+    && cp -R /tmp/tomcat-conf/* $CATALINA_HOME/conf/ \
+    && cp -R /tmp/rest-api-config/* sos-webapp/WEB-INF/ \
     && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get -y install nodejs git \
     && npm install -g bower && npm install -g grunt \
