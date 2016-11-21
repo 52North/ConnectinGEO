@@ -1,12 +1,12 @@
 {
-  "timePeriod": "2015-08-31T00:00:00+00:00/2015-09-30T23:59:59+00:00",
+  "timePeriod": "2015-08-31T00:00:00+00:00/2015-09-15T23:59:59+00:00",
   "procedure": "SIGNES_station",
   "featureOfInterest": "SIGNES",
   "coordinates": [
-    51.9347763061523,
-    7.65237522125244
+    43.251327,
+    5.811157
   ],
-  "altitude": 400,
+  "altitude": 460,
   "codespace": "http://insitu.webservice-energy.org/codespace/",
   "series": [
     {
@@ -77,13 +77,13 @@
     },
     {
       "observedProperty": "MODEL Solar Zenith Angle",
-      "uom": "W_m-2",
+      "uom": "degree",
       "procedure": "SIGNES-SZA",
       "dataUrl": "http://insitu.webservice-energy.org/timeseries-webapp/api/v1/timeseries/358/getData?expanded=true&format=flot"
     },
     {
       "observedProperty": "MODEL Solar Azimuth Angle",
-      "uom": "W_m-2",
+      "uom": "degree",
       "procedure": "SIGNES-SAA",
       "dataUrl": "http://insitu.webservice-energy.org/timeseries-webapp/api/v1/timeseries/359/getData?expanded=true&format=flot"
     }

@@ -1,12 +1,12 @@
 {
-  "timePeriod": "2015-08-31T00:00:00+00:00/2015-09-30T23:59:59+00:00",
+  "timePeriod": "2015-08-31T00:00:00+00:00/2015-09-15T23:59:59+00:00",
   "procedure": "SIGNES_station",
   "featureOfInterest": "SIGNES",
   "coordinates": [
-    51.9347763061523,
-    7.65237522125244
+    43.251327,
+    5.811157
   ],
-  "altitude": 400,
+  "altitude": 460,
   "codespace": "http://insitu.webservice-energy.org/codespace/",
   "series": [
     {

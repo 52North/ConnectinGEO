@@ -53,7 +53,7 @@ var doImport = function(config) {
       for (var key in data) {
         if (data.hasOwnProperty(key)) {
           for (var i = 0; i < data[key].values.length; i++) {
-          // for (var i = 0; i < 10; i++) {
+          // for (var i = 0; i < 1; i++) {
             var dateTime = moment(data[key].values[i][0]);
             var val = data[key].values[i][1];
 
@@ -65,7 +65,10 @@ var doImport = function(config) {
             template.observation[0].featureOfInterest.identifier.value = config.featureOfInterest;
             template.observation[0].featureOfInterest.name[0].value = config.featureOfInterest;
             template.observation[0].featureOfInterest.sampledFeature = ['http://www.opengis.net/def/nil/OGC/0/unknown'];
-            template.observation[0].featureOfInterest.geometry.coordinate = config.coordinates;
+            template.observation[0].featureOfInterest.geometry.coordinates = config.coordinates;
+            if (config.altitude) {
+              template.observation[0].featureOfInterest.geometry.coordinates[2] = config.altitude;
+            }
             template.observation[0].phenomenonTime = dateTime.toISOString();
             template.observation[0].resultTime = dateTime.toISOString();
             template.observation[0].result = {
